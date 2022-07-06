@@ -115,11 +115,9 @@ function moveForward(event) {
                 const nextParent = document.getElementById(nextId)
                 parent.removeChild(self);   
                 nextParent.appendChild(self)
-                console.log('removed' )
                 let displayContainer= document.getElementById("diceCard");
                 displayContainer.removeChild(player.SelectedCardValue.card);
                 player.NoOfCards--
-                console.log('player.NoOfCards', player.NoOfCards)
                 is6()
                 if(!(safeElements.includes(nextIdNumber))){
                     killopponent(nextParent,self,element)
@@ -144,7 +142,6 @@ function moveForward(event) {
                 
                
             }else if(canTokkenMove(nextIdNumber,currentIdNumber,element)==0){
-                console.log('cantmove')
                 is6()
             }
            
@@ -160,13 +157,8 @@ function moveForward(event) {
 function killopponent(nextParent,self,element) {
     const childs = nextParent.childNodes
     for (const child of childs) {
-    console.log('card', child)
-
-    console.log('card', self)
-
         if(!(child.isEqualNode(self))){
             child.remove();
-            console.log('killed' )
             let house = document.getElementById(`${child.classList[1]}House`);
             child.removeEventListener("click",moveForward)
             child.addEventListener("click",moveToBoard)
@@ -221,10 +213,8 @@ function moveToBoard(event) {
     self.removeEventListener("click",moveToBoard)
     parent.removeChild(self);
     toParent.appendChild(self)
-    console.log('removed')
     let displayContainer= document.getElementById("diceCard");
     displayContainer.removeChild(player.SelectedCardValue.card);
-    console.log('player.NoOfCards', player.NoOfCards)
     player.NoOfCards--
     const generateNumber = document.getElementById("regularDice")
     is6();
@@ -300,7 +290,6 @@ function nextPlayerTurn(){
             player.playerTurn="red"
         }
         ResetForNExtPlayer()
-        console.log( player.playerTurn)
         HighlightNextPlayer()
     } else {
         switch (player.playerTurn) {
@@ -320,7 +309,6 @@ function nextPlayerTurn(){
                 break;
         }
         ResetForNExtPlayer()
-        console.log( player.playerTurn)
         HighlightNextPlayer()
     }
 }
@@ -354,7 +342,6 @@ function generateNumber() {
     <h5 class="card-title">${randomNumber}</h5>
   </div>
 </div>`
-console.log('player.NoOfCards', player.NoOfCards)
 player.NoOfCards++
 
   if(randomNumber!=6){
@@ -396,7 +383,6 @@ function cheatNumber() {
     <h5 class="card-title">${number}</h5>
   </div>
 </div>`
-console.log('player.NoOfCards', player.NoOfCards)
 player.NoOfCards++
 
   if(number!=6){
