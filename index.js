@@ -440,19 +440,6 @@ function clearDiceCard() {
         
     }
 }
-function StartGame() {
-    let array = [red,blue,green,yellow]
-    array.forEach(element => {
-        let house = document.getElementById(`${element.value}House`);
-        house.innerHTML=` 
-        <h1 class="${element.value}">${element.value.toUpperCase()} HOUSE</h1>${tokkenDiv(element.value)}${tokkenDiv(element.value)}`;
-        element.tokkenAtHome= 2;
-        element.TokkenWon=0;
-        element.TokkenOnBoard= 0;
-        hoverinit()
-        HighlightNextPlayer()
-    });
-}
 function selectCard(event) {
     const card = event.target
     player.SelectedCardValue.card=card
@@ -462,7 +449,7 @@ function selectCard(event) {
 function deSelectCard(){
     setTimeout(() => {
         player.SelectedCardValue.card="";
-    player.SelectedCardValue.value="";
+        player.SelectedCardValue.value="";
     }, 500);
 }
 function ResetForNExtPlayer() {
@@ -473,5 +460,54 @@ function ResetForNExtPlayer() {
     initDice()
     clearDiceCard()
 }
-StartGame();
+function StartGame() {
+    player.playerTurn= "red"
+    player.generatedCard={
+        card: "",
+        value: 0
+    } 
+    player.SelectedCardValue={
+        value: 0,
+        card: "",
+        is6: false,
+    }
+    player.NoOfCards=0
+    if (player.noOfPlayers==2) {
+        var array = [red,blue]
+    }else{
+        var array = [red,blue,green,yellow]
+    }
+    array.forEach(element => {
+        let house = document.getElementById(`${element.value}House`);
+        house.innerHTML=` 
+        <h1 class="${element.value}">${element.value.toUpperCase()} HOUSE</h1>${tokkenDiv(element.value)}${tokkenDiv(element.value)}`;
+        element.tokkenAtHome= 2;
+        element.TokkenWon=0;
+        element.TokkenOnBoard= 0;
+        hoverinit()
+        HighlightNextPlayer()
+    });
+    let smallbox =document.getElementsByClassName("smallbox")
+    for (const child of smallbox) {
+        child.innerHTML=""
+    }
+}
+//form
+function Submit(event){
+    event.preventDefault()
+    const noOfPlayers =document.getElementById("inputGroupSelect01")
+    player.noOfPlayers=noOfPlayers.value
+    StartGame()
+    
+}
+function Submit1(event){
+    event.preventDefault()
+    const noOfPlayers =document.getElementById("inputGroupSelect02")
+    player.noOfPlayers=noOfPlayers.value
+    StartGame()
+    let startmenu = document.getElementById("startmenu")
+    startmenu.style.display="none"
+}
+
+
 

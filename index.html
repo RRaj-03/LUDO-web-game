@@ -12,7 +12,47 @@
 </head>
 
 <body>
-    <div class="bigContainer">
+    <div class="startmenu" id="startmenu">
+        <div class="container" id="formelement1" style="padding: 2rem;">
+            <h1 class="text-center">Start Menu</h1>
+            <form >
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                    <select class="form-select" id="inputGroupSelect02">
+                      <option value="2" selected>2</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary" onclick="Submit1(event)">Start Game</button>
+            </form>
+            <h1 class="text-center"> Instruction </h1>
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Choose Number of player</div>
+            Choose Number of player from <strong> Start Menu</strong> or from the <strong>Form</strong> below ludo
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">SafePoints</div>
+            All the coloured boxes are <strong>safepoints</strong> as well as <strong>starting point</strong> for respective color
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Moving token</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">After generating number from the dice <strong>select the number card</strong> and then <strong>press the token</strong> you want to move.</li>
+                <li class="list-group-item">If you have no tokens to move, then your chance will be <strong>skipped</strong></li>
+              </ul> 
+          </div>
+        </li>
+      </ol>
+        </div>
+        
+    </div>
+    <div class="bigContainer" id="ludo">
         <div class="house" id="redHouse">
             <h1 class="red">RED HOUSE</h1>
         </div>
@@ -46,18 +86,18 @@
                     
                 </div>
                 <div class="m-2" id="diceCard">
-                <div style="visibility: hidden;">hello</div>
+                <div style="visibility: hidden; height: 0;">hello</div>
                 </div>
             </div>
         </div>
-        <div class="smallbox" id="box1"></div>
+        <div class="smallbox" id="box1" style="background-color: red;"></div>
         <div class="smallbox" id="box2"></div>
         <div class="smallbox" id="box3"></div>
         <div class="smallbox" id="box4"></div>
         <div class="smallbox" id="box5"></div>
         <div class="smallbox" id="box6"></div>
         <div class="smallbox" id="box7"></div>
-        <div class="smallbox" id="box8"></div>
+        <div class="smallbox" id="box8" style="background-color: green;"></div>
         <div class="smallbox" id="box28"></div>
         <div class="smallbox" id="box9"></div>
         <div class="smallbox" id="box27"></div>
@@ -70,16 +110,55 @@
         <div class="smallbox" id="box13"></div>
         <div class="smallbox" id="box23"></div>
         <div class="smallbox" id="box14"></div>
-        <div class="smallbox" id="box22"></div>
+        <div class="smallbox" id="box22" style="background-color: yellow;"></div>
         <div class="smallbox" id="box21"></div>
         <div class="smallbox" id="box20"></div>
         <div class="smallbox" id="box19"></div>
         <div class="smallbox" id="box18"></div>
         <div class="smallbox" id="box17"></div>
         <div class="smallbox" id="box16"></div>
-        <div class="smallbox" id="box15"></div>
+        <div class="smallbox" id="box15" style="background-color: blue;"></div>
     </div>
 </div>
+<div class="container" id="formelement" style="padding: 2rem;">
+    <form >
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Options</label>
+            <select class="form-select" id="inputGroupSelect01">
+              <option value="2" selected>2</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" onclick="Submit(event)">Restart Game</button>
+    </form>
+</div>
+<div class="container" id="instruction">
+    <h1 class="text-center"> Instruction </h1>
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Choose Number of player</div>
+            Choose Number of player from <strong> Start Menu</strong> or from the <strong>Form</strong> below ludo
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">SafePoints</div>
+            All the coloured boxes are <strong>safepoints</strong> as well as <strong>starting point</strong> for respective color
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Moving token</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">After generating number from the dice <strong>select the number card</strong> and then <strong>press the token</strong> you want to move.</li>
+                <li class="list-group-item">If you have no tokens to move, then your chance will be <strong>skipped</strong></li>
+              </ul> 
+          </div>
+        </li>
+      </ol>
+</div>
+<br>
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
